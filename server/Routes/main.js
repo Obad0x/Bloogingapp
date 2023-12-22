@@ -3,7 +3,11 @@ const router = express.Router();
 
 const Post  = require('../models/Post')
 
+/*
+    GET /
+    *Home
 
+ */
 router.get("", async (req, res )=>{
 try{
             let perPage = 3;
@@ -38,9 +42,71 @@ catch (error){
 })
 
 
+/*
+    GET /
+    *Posts :id
+
+ */
+    router.get("/post/:id", async  (req, res )=>{
+
+try {
+
+
+    let slug = req.params.id;
 
 
 
+    const data = await Post.findById({_id : slug})
+  
+
+    res.render('post', {data})
+} 
+catch (error) {
+        console.log(error)
+}
+
+
+       
+    })
+    
+/*
+    POST /
+    *Posts -SearchTerm
+
+ */
+    router.post("/search", async  (req, res )=>{
+
+        try {
+        
+
+            let searchTerm= req.body.searchTerm;
+            const searchNoSpecialChar = searchTerm.replace(/[a-zA-Z0-9]/g, "") ;
+
+            const data = await Post.find({
+                $or :[
+                    {title : {$regex : new RegExp(searchNoSpecialChar, "i")}},
+                    {body: {$regex : new RegExp(searchNoSpecialChar, "i")}}
+                ]
+            })
+          
+        
+            res.render('search', {data})
+        } 
+        catch (error) {
+                console.log(error)
+        }
+        
+        
+               
+            })
+
+
+
+/*
+    GET /
+    *About
+
+ */
 
 router.get("/about",  (req, res )=>{
 
