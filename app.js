@@ -23,6 +23,7 @@ app.set('view engine', 'ejs');
 
 
 app.use('/', require('./server/Routes/main'))
+app.use('/', require('./server/Routes/admin'))
 
 
 
