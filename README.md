@@ -13,15 +13,26 @@ bloogingapp is a blogging platform built with Node.js and Express, utilizing EJS
 
 To set up bloogingapp on your local machine, follow these steps:
 
-1. Clone the repository: git clone https://github.com/yourusername/bloogingapp.git
-2. Navigate to the project directory: cd bloogingapp
-3. Install the dependencies: npm install
+1. Clone the repository:
+ ` git clone https://github.com/yourusername/bloogingapp.git`
+
+2. Navigate to the project directory:
+   `cd bloogingapp`
+   
+3. Install the dependencies:`
+          npm install`
+
+   
 4. Create a `.env` file in the root directory and add your MongoDB URI and any other environment variables:
-     PORT=3000
-MONGODB_URI=your_mongodb_uri
+     `PORT=3000`
+     `MONGODB_URI=your_mongodb_uri`
+
+
 5. Start the application:
- npm start
-6.For development, you can use: npm run dev
+` npm start`
+
+
+6.For development, you can use:` npm run dev`
 
 
 
