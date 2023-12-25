@@ -122,11 +122,34 @@ router.get('/dashboard',authMiddleware,  async(req,res)=>{
       } catch (error) {
             console.log(error)
       }
+   
+      });
+    /* POSY/
+      *Admin - Create new Post    */
+    router.post('/add-post',authMiddleware,  async(req,res)=>{
+
+      try {
+              console.log(req.body);
 
 
+              try {
 
+                  const newpost = new Post({
+                    title : req.body.title, 
+                    body : req.body.body
+                  })
 
-             
+                  await Post.create(newpost);
+                  res.redirect('/dashboard')
+
+              } catch (error) {
+                  console.log(error)
+              }
+     
+      } catch (error) {
+            console.log(error)
+      }
+   
       });
 
       
