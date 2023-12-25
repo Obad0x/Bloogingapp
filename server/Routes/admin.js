@@ -213,6 +213,16 @@ router.get('/dashboard',authMiddleware,  async(req,res)=>{
    
       });
 
+
+
+    /* GET/
+      *Admin - DELETE POST  */
+    router.get('/logout',authMiddleware,  async(req,res)=>{
+
+            res.clearCookie('token')
+            res.redirect('/')
+      });
+
       
       
       
