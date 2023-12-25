@@ -99,7 +99,7 @@ router.get('/dashboard',authMiddleware,  async(req,res)=>{
             try {
                     const data = await Post.find();
                     res.render('admin/dashboard', {
-                      data 
+                      data , layout: adminLayout
                     })
             } catch (error) {
                   console.log(error)
@@ -112,17 +112,29 @@ router.get('/dashboard',authMiddleware,  async(req,res)=>{
             });
 
 
+    /* GET/
+      *Admin - Create new Post    */
+    router.get('/add-post',authMiddleware,  async(req,res)=>{
+
+      try {
+              const data = await Post.find();
+              res.render('admin/add-post', {layout: adminLayout} )
+      } catch (error) {
+            console.log(error)
+      }
+
+
+
+
+             
+      });
+
       
       
       
       
       
        
-
-
-
-
-
 
     /* POST/
     *Admin - Register
