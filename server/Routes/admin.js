@@ -89,16 +89,37 @@ const jwtSecret = process.env.JWT_SECRET
                
             })
 
-      /* GET/
-    *Admin -Dashboard
+     
+     
+     
+            /* GET/
+      *Admin -Dashboard     */
+router.get('/dashboard',authMiddleware,  async(req,res)=>{
 
- */
+            try {
+                    const data = await Post.find();
+                    res.render('admin/dashboard', {
+                      data 
+                    })
+            } catch (error) {
+                  console.log(error)
+            }
 
 
-            router.get('/dashboard',authMiddleware,  async(req,res)=>{
 
-                    res.render('admin/dashboard')
+
+                   
             });
+
+
+      
+      
+      
+      
+      
+       
+
+
 
 
 
