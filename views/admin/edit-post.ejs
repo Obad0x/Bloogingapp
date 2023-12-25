@@ -16,13 +16,13 @@
         <b>Title</b>
     </label>
 
-    <input type="text" placeholder="ENTER THE TITLE " name="title" >
+    <input type="text" placeholder="ENTER THE TITLE " name="title" value="<%= data.title %>">
 
 
     <label for="body">
         <b>Content</b>
     </label>
-    <textarea name="body"  cols="50" rows="10"></textarea>
+    <textarea name="body"  cols="50" rows="10"><%= data.body %></textarea>
 
     <input type="submit" value="Submit" class="btn">
 

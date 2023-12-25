@@ -3,6 +3,7 @@ require('dotenv').config()
 
 const express = require('express')
 const expressLayout = require('express-ejs-layouts')
+const methodoverride = require('method-override')
 const connectDB = require('./server/config/db')
 const app = express()
 const cookieParser = require('cookie-parser')
@@ -26,6 +27,7 @@ app.use(session({
         mongoUrl : process.env.MONGODB_URI
     }),
 }));
+app.use(methodoverride('_method'));
 
 // Templating Engine
 app.use(expressLayout)
